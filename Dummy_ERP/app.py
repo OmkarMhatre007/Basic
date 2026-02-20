@@ -57,14 +57,16 @@ def login():
 
 @app.route('/dashboard')
 def dashboard():
-    if 'user_id' not in session: return redirect(url_for('index'))
+    if 'user_id' not in session: 
+        return redirect(url_for('index'))
     
-    # Logic for what cards to show
+    # Define subjects based on role
     if session['role'] == 'HOD':
         subjects = ['Data Science', 'AIML', 'Networking', 'Python']
     else:
         subjects = [session['subject']]
         
+    # FIX: We use 'session' here because we stored the user info there during login
     return render_template('dashboard.html', subjects=subjects)
 
 # ADD THIS NEW ROUTE to see your saved data on screen

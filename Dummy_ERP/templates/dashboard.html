@@ -9,8 +9,8 @@
 </head>
 <body style="font-family: sans-serif; background: #f8f9fa; padding: 40px;">
     <a href="/logout" class="logout">Logout</a>
-    <h1>Welcome, {{ user['username'] }}</h1>
-    <p>Role: <strong>{{ user['role'] }}</strong></p>
+    <h1>Welcome, {{ session['username'] }}</h1>
+    <p>Role: <strong>{{ session['role'] }}</strong></p>
     <hr>
     <h3>Assigned Subjects:</h3>
     {% for sub in subjects %}
